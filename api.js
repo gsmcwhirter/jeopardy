@@ -242,22 +242,33 @@ module.exports = function (settings){
 		api.couchdb.request("GET", "/_design/jeopardy/_view/by_title/" + encodeOptions(options), cdb_cb(callback));
 	};
 
-	api.find_game = function (req, res, next, game_id){
-		api.query_id({key: game_id, include_docs: true}, function (err, rows){
-			//console.log(err);
-			//console.log(rows);
-			if (err){
-				next(err);
-			}
-			else if (rows.length === 0){
-				next(new Error("Game not found"));
-			}
-			else {
-				//console.log("here");
-				req.game = new Game(rows[0].doc);
-				next();
-			}
-		});
+    api.find_game = function (game_id, callback){
+        api.query_id({key: game_id, include_docs: true}, function (err, rows){
+            //console.log(err);
+            //console.log(rows);
+            if (err){
+                callback(err);
+            }
+            else if (rows.length === 0){
+                callback(new Error("Game not found"));
+            }
+            else {
+                //console.log("here");
+                callback(null, rows[0].doc);
+            }
+        });
+    }
+
+	api.find_game_middleware = function (req, res, next, game_id){
+		api.find_game(game_id, function (err, game_doc){
+            if (err){
+                next(err);
+            }
+            else {
+                req.game = new Game(game_doc);
+                next();
+            }
+        });
 	};
 
 	return api;

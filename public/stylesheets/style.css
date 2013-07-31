@@ -34,3 +34,6 @@ div#game-grid .category .question {
   font-size: 42px;
   border-bottom: 1px solid #ff0;
 }
+div#game-grid .category .question .qtext {
+  display: none;
+}

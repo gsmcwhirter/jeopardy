@@ -1,0 +1,22 @@
+{
+  "name": "jeopardy",
+  "repo": "gsmcwhirter/jeopardy",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "component/dialog": "*",
+    "component/overlay": "*",
+    "learnboost/engine.io-client": "*",
+    "component/json": "*",
+    "component/json-fallback": "*",
+    "component/event": "*",
+    "component/query": "*"
+  },
+  "main": "component-src.js",
+  "scripts": [
+    "component-src.js"
+  ],
+  "development": {},
+  "license": "MIT"
+}

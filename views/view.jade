@@ -13,4 +13,12 @@ block content
       each category in game.categories
         div.category
           each question in category.questions
-            div.question.hidden= question.value
+            div.question(id="c"+ci+"q"+qi)
+              span.value= question.value
+              div.qtext
+                span.q= question.question
+
+
+append scripts
+  script(type="text/javascript").
+    var socket = Jeopardy.initViewer("ws://localhost:5900", "#{game._doc._id}", "#{game_session}");

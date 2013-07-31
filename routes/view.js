@@ -1,5 +1,16 @@
+var shortid = require("shortid");
+
 exports.show = function (req, res){
-	res.render('view', { title: req.game.title, game: req.game });
+	if (!req.game_session){
+		//create new game session
+		var game_session = shortid.generate();
+		req.game_session = game_session;
+
+		res.redirect("view/" + req.game._doc._id + "/"+game_session);
+	}
+	else {
+		res.render('view', { title: req.game.title, game: req.game, game_session: req.game_session });
+	}
 	//res.end("<html><body>Game!<br/><br/><pre>"+JSON.stringify(req.game, null, 4)+"</pre></body></html>");
 };
 

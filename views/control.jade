@@ -1,5 +1,27 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  //h3= title
+  
+  div#game-grid
+    div
+      each category in game.categories
+        div.category
+          div.header
+            span.text= category.name
+    div
+      each category, ci in game.categories
+        div.category
+          each question, qi in category.questions
+            div.question(id="c"+ci+"q"+qi)
+              span.value 
+                a(href="#")= question.value
+              div.qtext
+                span.q= question.question
+                span.a= question.answer
+
+
+
+append scripts
+  script(type="text/javascript").
+    var socket = Jeopardy.initController("ws://localhost:5900", "#{game._doc._id}", "#{game_session}");
