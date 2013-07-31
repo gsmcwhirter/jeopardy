@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  //h3= title
+  
+  div#game-grid
+    div
+      each category in game.categories
+        div.category
+          div.header
+            span.text= category.name
+    div
+      each category in game.categories
+        div.category
+          each question in category.questions
+            div.question.hidden= question.value

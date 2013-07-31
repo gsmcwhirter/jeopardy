@@ -1,0 +1,36 @@
+body {
+  padding: 10px 50px;
+  font: 42px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: #ddd;
+  background-color: #004;
+}
+a {
+  color: #00b7ff;
+}
+div#game-grid {
+  width: 100%;
+}
+div#game-grid .category {
+  width: 20%;
+  float: left;
+}
+div#game-grid .category div {
+  text-align: center;
+  border-left: 1px solid #ff0;
+  border-right: 1px solid #ff0;
+}
+div#game-grid .category .header {
+  font-weight: bold;
+  border-top: 1px solid #ff0;
+  border-bottom: 3px solid #ff0;
+  height: 100%;
+  min-height: 110px;
+}
+div#game-grid .category .header span.text {
+  vertical-align: center;
+}
+div#game-grid .category .question {
+  padding: 20px 0px;
+  font-size: 42px;
+  border-bottom: 1px solid #ff0;
+}

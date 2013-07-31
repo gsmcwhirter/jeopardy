@@ -1,0 +1,10 @@
+{
+	"couch_host": "http://localhost:5984",
+	"couch_db": "http://localhost:5984/jeopardy",
+	"couch_use_auth": false,
+	"couch_user": "",
+	"couch_pass": "",
+	"session_secret": "AOPBUVQ)(#*BABSbOABDVOA C  AOEIG)CBN",
+
+	"port": 5900
+}
