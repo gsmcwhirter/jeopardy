@@ -24,7 +24,7 @@
                "value": 400
            },
            {
-               "question": "Provide a natural deduction proof to demonstrate \\(C\\to(B\\vee A),\\ \\sim B\\ \\&\\ \\sim D,\\ A\\leftrightarrow B,\\ ((E\\vee B)\\leftrightarrow C)\\to(A\\vee D)\\vdash E\\)",
+               "question": "Provide a natural deduction proof to demonstrate \\(C\\to(B\\vee A),\\ \\sim B\\ \\&\\ \\sim D,\\ A\\leftrightarrow B,\\) \\(\\ ((E\\vee B)\\leftrightarrow C)\\to(A\\vee D)\\vdash E\\)",
                "answer": "(proof)",
                "value": 500
            }
@@ -40,7 +40,7 @@
                "value": 100
            },
            {
-               "question": "Provide a natural deduction proof to show \\(\\forall x(Fx\\to Gx)\\vdash (\\forall x\\sim Gx\\to\\forall x\\sim Fx)\\)",
+               "question": "Provide a natural deduction proof to show \\(\\forall x(Fx\\to Gx)\\) \\(\\vdash (\\forall x\\sim Gx\\to\\forall x\\sim Fx)\\)",
                "answer": "",
                "value": 200
            },

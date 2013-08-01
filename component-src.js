@@ -2,9 +2,11 @@ var socket_engine = require("engine.io")
 	, json = require('json')
 	, events = require('event')
 	, query = require('query')
-	//, overlay = require('overlay')
+	, overlay = require('overlay')
 	, dialog = require('dialog')
 	;
+
+var overlay = overlay();
 
 function socket_publish(socket, data){
 	if (socket.readyState === "closed"){
@@ -150,7 +152,7 @@ module.exports = {
 			function new_dia(el){
 				var dia = dialog("For " + el.innerText + " points:", query('.qtext', el));
 				dia.effect('scale');
-				dia.overlay();
+				//dia.overlay();
 				dia.modal();
 				dia.addClass('dia-question');
 				dia._autohidden = false;
@@ -166,11 +168,15 @@ module.exports = {
 
 						//query('.value>a', el).style.display = 'none';
 						query('.value', el).innerHTML = "&nbsp;";
+						overlay.hide();
 					};
 					
 					return closedia;
 				}
 
+				dia.on('show', function (){
+					overlay.show();
+				})
 				dia.on('hide', newcdia(el));	
 
 				return dia;
@@ -251,7 +257,7 @@ module.exports = {
 				var dia = dialog("For " + el.innerText + " points:", query('.qtext', el));
 				//dia.closable();
 				dia.effect('scale');
-				dia.overlay();
+				//dia.overlay();
 				dia.addClass('dia-question-answer')
 
 				MathJax.Hub.Queue(["Typeset",MathJax.Hub,dia.el[0]]);
@@ -260,12 +266,14 @@ module.exports = {
 					var closedia = function (){
 						//query('.value>a', el).style.display = 'none';
 						query('.value', el).innerHTML = "&nbsp;";
+						overlay.hide();
 						socket_publish(socket, {type: "clear", game_id: game_id, session_id: session_id, category: c, question: q});
 					};
 
 					return closedia;
 				}
 
+				dia.on('show', overlay.show());
 				dia.on('escape', newcdia(el));
 				dia.on('close', newcdia(el));
 
