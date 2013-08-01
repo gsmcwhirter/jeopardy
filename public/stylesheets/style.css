@@ -37,3 +37,19 @@ div#game-grid .category .question {
 div#game-grid .category .question .qtext {
   display: none;
 }
+.dia-question,
+.dia-question-answer {
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  color: #000;
+}
+.dia-question span,
+.dia-question-answer span {
+  display: block;
+  margin-bottom: 10px;
+}
+.overlay {
+  background-color: #000;
+  opacity: 0.75;
+}

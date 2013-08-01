@@ -1,0 +1,157 @@
+[
+   {
+       "name": "TF Logic",
+       "order": 0,
+       "questions": [
+           {
+               "question": "What does it mean for a sentence to be a tautology?",
+               "answer": "Every possible interpretation makes the sentence true.",
+               "value": 100
+           },
+           {
+               "question": "Answer all of the following:<ol><li>A sentence is contingent iff it is falsifiable and consistent</li><li>A sentence P is a contradiction if it is not a tautology.</li><li>If a sentence is consistent, then it is falsifiable.</li></ol>",
+               "answer": "T/F/F",
+               "value": 200
+           },
+           {
+               "question": "Construct a truth-table to show that C\\ \\&\\ (B\\vee A)\\approx (C\\ \\&\\ B)\\vee(C\\ \\&\\ A)",
+               "answer": "(table)",
+               "value": 300
+           },
+           {
+               "question": "Write an explanation for why if p,q\\models r, then the sentence (p\\ \\&\\ q)\\to r is a tautology.",
+               "answer": "(explanation)",
+               "value": 400
+           },
+           {
+               "question": "Provide a natural deduction proof to demonstrate C\\to(B\\vee A),\\ \\sim B\\ \\&\\ \\sim D,\\ A\\leftrightarrow B,\\ ((E\\vee B)\\leftrightarrow C)\\to(A\\vee D)\\vdash E",
+               "answer": "(proof)",
+               "value": 500
+           }
+       ]
+   },
+   {
+       "name": "Q Logic",
+       "order": 1,
+       "questions": [
+           {
+               "question": "",
+               "answer": "",
+               "value": 100
+           },
+           {
+               "question": "",
+               "answer": "",
+               "value": 200
+           },
+           {
+               "question": "",
+               "answer": "",
+               "value": 300
+           },
+           {
+               "question": "",
+               "answer": "",
+               "value": 400
+           },
+           {
+               "question": "",
+               "answer": "",
+               "value": 500
+           }
+       ]
+   },
+   {
+       "name": "Sets",
+       "order": 2,
+       "questions": [
+           {
+               "question": "What is the definition of subset?",
+               "answer": "A\\subseteq B\\leftrightarrow \\forall x(x\\in A\\to x\\in B)",
+               "value": 100
+           },
+           {
+               "question": "",
+               "answer": "",
+               "value": 200
+           },
+           {
+               "question": "",
+               "answer": "",
+               "value": 300
+           },
+           {
+               "question": "",
+               "answer": "",
+               "value": 400
+           },
+           {
+               "question": "",
+               "answer": "",
+               "value": 500
+           }
+       ]
+   },
+   {
+       "name": "Misc. Math",
+       "order": 3,
+       "questions": [
+           {
+               "question": "What does it mean (by definition) to say 3\\mid n?",
+               "answer": "There is a natural number k such that 3k=n.",
+               "value": 100
+           },
+           {
+               "question": "",
+               "answer": "",
+               "value": 200
+           },
+           {
+               "question": "",
+               "answer": "",
+               "value": 300
+           },
+           {
+               "question": "Prove that for any natural number n, n(n^2 - 1) is divisible by 3.",
+               "answer": "(proof)",
+               "value": 400
+           },
+           {
+               "question": "",
+               "answer": "",
+               "value": 500
+           }
+       ]
+   },
+   {
+       "name": "Misc. Logic",
+       "order": 4,
+       "questions": [
+           {
+               "question": "",
+               "answer": "",
+               "value": 100
+           },
+           {
+               "question": "",
+               "answer": "",
+               "value": 200
+           },
+           {
+               "question": "",
+               "answer": "",
+               "value": 300
+           },
+           {
+               "question": "",
+               "answer": "",
+               "value": 400
+           },
+           {
+               "question": "",
+               "answer": "",
+               "value": 500
+           }
+       ]
+   }
+]

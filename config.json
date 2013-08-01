@@ -1,7 +1,7 @@
 {
 	"couch_host": "http://localhost:5984",
 	"couch_db": "http://localhost:5984/jeopardy",
-	"couch_use_auth": true,
+	"couch_use_auth": false,
 	"couch_user": "evogames",
 	"couch_pass": "evogames",
 	
@@ -13,5 +13,5 @@
 	"uid": "swtor-tanking",
 	"logDir": null,
 
-	"websocket_domain": "ideafreemonoid.org"
+	"websocket_domain": "localhost"
 }

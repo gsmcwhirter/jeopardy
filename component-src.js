@@ -148,7 +148,7 @@ module.exports = {
 			console.log(qi);
 
 			function new_dia(el){
-				var dia = dialog(el.innerText, query('.qtext', el));
+				var dia = dialog("For " + el.innerText + " points:", query('.qtext', el));
 				dia.effect('scale');
 				dia.overlay();
 				dia.modal();
@@ -246,7 +246,7 @@ module.exports = {
 			console.log(qi);
 
 			function new_dia(el, c, q){
-				var dia = dialog(el.innerText, query('.qtext', el));
+				var dia = dialog("For " + el.innerText + " points:", query('.qtext', el));
 				//dia.closable();
 				dia.effect('scale');
 				dia.overlay();
