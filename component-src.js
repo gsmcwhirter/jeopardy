@@ -155,7 +155,7 @@ module.exports = {
 				dia.addClass('dia-question');
 				dia._autohidden = false;
 
-				MathJax.Hub.Queue(["Typeset",MathJax.Hub,dialog.el[0]]);
+				MathJax.Hub.Queue(["Typeset",MathJax.Hub,dia.el[0]]);
 
 				function newcdia(el){
 					var closedia = function (){
@@ -254,7 +254,7 @@ module.exports = {
 				dia.overlay();
 				dia.addClass('dia-question-answer')
 
-				MathJax.Hub.Queue(["Typeset",MathJax.Hub,dialog.el[0]]);
+				MathJax.Hub.Queue(["Typeset",MathJax.Hub,dia.el[0]]);
 
 				function newcdia(el){
 					var closedia = function (){
