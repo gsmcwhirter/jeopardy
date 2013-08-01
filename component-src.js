@@ -266,6 +266,7 @@ module.exports = {
 					var closedia = function (){
 						//query('.value>a', el).style.display = 'none';
 						query('.value', el).innerHTML = "&nbsp;";
+            the_overlay.hide();
 						socket_publish(socket, {type: "clear", game_id: game_id, session_id: session_id, category: c, question: q});
 					};
 
@@ -273,7 +274,7 @@ module.exports = {
 				}
 
 				dia.on('show', function (){the_overlay.show();});
-        dia.on('hide', function (){the_overlay.hide();});
+        //dia.on('hide', function (){the_overlay.hide();});
 				dia.on('escape', newcdia(el));
 				dia.on('close', newcdia(el));
 
