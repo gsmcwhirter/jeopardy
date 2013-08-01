@@ -272,8 +272,8 @@ module.exports = {
 					return closedia;
 				}
 
-				dia.on('show', function (){overlay.show();});
-        dia.on('hide', function (){overlay.hide();});
+				dia.on('show', function (){the_overlay.show();});
+        dia.on('hide', function (){the_overlay.hide();});
 				dia.on('escape', newcdia(el));
 				dia.on('close', newcdia(el));
 
