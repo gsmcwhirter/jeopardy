@@ -71,23 +71,23 @@
                "value": 100
            },
            {
-               "question": "",
-               "answer": "",
+               "question": "True or false: The power set of the empty set is the empty set. If true, explain why. If false, calculate the actual power set.",
+               "answer": "False, P(\\emptyset) = \\{\\emptyset\\}",
                "value": 200
            },
            {
-               "question": "",
-               "answer": "",
+               "question": "What does it mean for a relation to be symmetric? Also, provide an example of a symmetric relation.",
+               "answer": "(defn + ex)",
                "value": 300
            },
            {
-               "question": "",
-               "answer": "",
+               "question": "Prove that if A\\neq\\emptyset, then either A\\setminus B\\neq\\emptyset or A\\cap B\\neq \\emptyset.",
+               "answer": "(proof)",
                "value": 400
            },
            {
-               "question": "",
-               "answer": "",
+               "question": "Prove that if B and C are disjoint and A\\cap C is nonempty, then A\\not\\subseteq B.",
+               "answer": "(proof)",
                "value": 500
            }
        ]
@@ -128,8 +128,8 @@
        "order": 4,
        "questions": [
            {
-               "question": "",
-               "answer": "",
+               "question": "Must a valid argument have premises that are true in the real world? Why?",
+               "answer": "No",
                "value": 100
            },
            {
@@ -143,7 +143,7 @@
                "value": 300
            },
            {
-               "question": "",
+               "question": "What does it mean for a logical system to be sound? Using the syntax and grammar of truth-functional logic, ",
                "answer": "",
                "value": 400
            },
