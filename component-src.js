@@ -9,7 +9,7 @@ var socket_engine = require("engine.io")
 var the_overlay;
 
 function show_overlay(){
-  the_overlay.hide();
+  the_overlay && the_overlay.hide();
   the_overlay = overlay();
   the_overlay.show();
 }
