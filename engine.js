@@ -76,6 +76,7 @@ Engine.prototype.register = function (game_id, session_id, type, socket, callbac
 };
 
 Engine.prototype.ping = function (game_id, session_id, type, socket, callback){
+	callback = callback || function (){};
 	var i, ct, thing, error;
 	if (this.games[game_id]){
 		if (this.games[game_id].sessions && this.games[game_id].sessions[session_id]){
@@ -133,7 +134,9 @@ Engine.prototype.ping = function (game_id, session_id, type, socket, callback){
 	}
 };
 
-Engine.prototype.send_test = function (game_id, session_id, socket, data, callback){
+Engine.prototype.send_clear = function (game_id, session_id, category, question, socket, callback){
+	console.log("send_clear");
+	callback = callback || function (){};
 	var self = this;
 	var i, ct, thing, error;
 	if (this.games[game_id]){
@@ -142,7 +145,108 @@ Engine.prototype.send_test = function (game_id, session_id, socket, data, callba
 				ct = this.games[game_id].sessions[session_id].controllers.length;
 				for (i = 0; i < ct; i++){
 					thing = this.games[game_id].sessions[session_id].controllers[i];
-					if (thing.socket == socket){
+					if (thing && thing.socket == socket){
+						(this.games[game_id].sessions[session_id].viewers || []).forEach(function (viewer){
+							if (viewer){
+								console.log("sending clear");
+								console.log(category);
+								console.log(question);
+								self.publish(viewer.socket, {type: "clear", category: category, question: question});	
+							}
+						});
+
+						thing.last_activity = Date.now();
+						callback();
+						return;
+					}
+				}
+
+				error = {type: "close", data: "socket not registered"};
+				this.publish(socket, error);
+				callback(error);
+			}
+			else{
+				error = {type: "close", data: "socket not registered"};
+				this.publish(socket, error);
+				callback(error);
+				return;
+			}
+		}
+		else {
+			error = {type: "close", data: "session not found"};
+			this.publish(socket, error);
+			callback(error);
+			return;	
+		}
+	}
+	else {
+		error = {type: "close", data: "game not found"};
+		this.publish(socket, error);
+		callback(error);
+		return;
+	}
+};
+
+Engine.prototype.send_display = function (game_id, session_id, category, question, socket, callback){
+	callback = callback || function (){};
+	var self = this;
+	var i, ct, thing, error;
+	if (this.games[game_id]){
+		if (this.games[game_id].sessions && this.games[game_id].sessions[session_id]){
+			if (this.games[game_id].sessions[session_id].controllers){
+				ct = this.games[game_id].sessions[session_id].controllers.length;
+				for (i = 0; i < ct; i++){
+					thing = this.games[game_id].sessions[session_id].controllers[i];
+					if (thing && thing.socket == socket){
+						(this.games[game_id].sessions[session_id].viewers || []).forEach(function (viewer){
+							if (viewer){
+								self.publish(viewer.socket, {type: "display", category: category, question: question});	
+							}
+						});
+
+						thing.last_activity = Date.now();
+						callback();
+						return;
+					}
+				}
+
+				error = {type: "close", data: "socket not registered"};
+				this.publish(socket, error);
+				callback(error);
+			}
+			else{
+				error = {type: "close", data: "socket not registered"};
+				this.publish(socket, error);
+				callback(error);
+				return;
+			}
+		}
+		else {
+			error = {type: "close", data: "session not found"};
+			this.publish(socket, error);
+			callback(error);
+			return;	
+		}
+	}
+	else {
+		error = {type: "close", data: "game not found"};
+		this.publish(socket, error);
+		callback(error);
+		return;
+	}
+};
+
+Engine.prototype.send_test = function (game_id, session_id, socket, data, callback){
+	callback = callback || function (){};
+	var self = this;
+	var i, ct, thing, error;
+	if (this.games[game_id]){
+		if (this.games[game_id].sessions && this.games[game_id].sessions[session_id]){
+			if (this.games[game_id].sessions[session_id].controllers){
+				ct = this.games[game_id].sessions[session_id].controllers.length;
+				for (i = 0; i < ct; i++){
+					thing = this.games[game_id].sessions[session_id].controllers[i];
+					if (thing && thing.socket == socket){
 						(this.games[game_id].sessions[session_id].viewers || []).forEach(function (viewer){
 							if (viewer){
 								self.publish(viewer.socket, {type: "test", data: data});	

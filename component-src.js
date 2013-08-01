@@ -11,6 +11,8 @@ function socket_publish(socket, data){
 		socket.open();
 	}
 
+	console.log(data);
+
 	socket.send(json.stringify(data));
 }
 
@@ -43,16 +45,25 @@ module.exports = {
 
 		dias = {};
 
-		function clearDias(){
-			for (var key in dias){
-				dias[key].hide();
-			}
-		}
+		// function clearDias(callback){
+		// 	callback = callback || function (){};
+		// 	for (var key in dias){
+		// 		if (dias[key]){
+		// 			dias[key].once('hide', function (){
+		// 				callback();
+		// 			})
+
+		// 			dias[key].hide();
+		// 		}
+		// 	}
+
+		// 	callback();
+		// }
 
 		socket.onopen = function (){
 		  socket.onmessage = socket_receiver(function (err, data){
-		  	
-		  	//console.log(data);
+		  	console.log(data);
+
 		  	if (data.type === "registered"){
 		  		clientData.registered_id = data.data;
 		  	}
@@ -63,16 +74,26 @@ module.exports = {
 		  	}
 
 		  	if (data.type === "display"){
-		  		var ids = "#c" + (data.category || -1) + "q" + (data.question || -1);
+		  		console.log(data);
+		  		var ids = "c" + (data.category || -1) + "q" + (data.question || -1);
+		  		console.log(ids);
 
 		  		if (dias[ids]){
-		  			clearDias();
+		  			console.log(dias[ids]);
 		  			dias[ids].show();
+		  		}
+		  		else {
+		  			console.log("no dias[ids]");
 		  		}
 		  	}
 
 		  	if (data.type === "clear"){
-		  		clearDias();
+		  		console.log(dias);
+					var ids = "c" + (data.category || -1) + "q" + (data.question || -1);
+
+		  		if (dias[ids]){
+		  			dias[ids].hide();
+		  		}
 		  	}
 
 		  	if (data.type === "test"){
@@ -105,28 +126,58 @@ module.exports = {
 		var ping = setInterval(pingfunc, 10000);
 		setTimeout(pingfunc, 200);
 
-		query.all(".category>.question").forEach(function (el){
-			var ci = -1,qi = -1;
+		var els = query.all(".category>.question");
+		for (var i in els){
+			var el = els[i];
+
+			console.log(el);
+
+			if (typeof el !== "object")  break;
+
+			var ci = -1
+				, qi = -1
+				;
+
 			var matches = (el.id || "").match(/c(\d+)q(\d+)/);
 			if (matches && matches.length && matches.length > 2){
 				ci = matches[1];
 				qi = matches[2];
 			}
 
-			var dia = dialog(el.innerText, query('.qtext', el).innerHTML);
-			dia.effect('scale');
-			dia.overlay();
-			dia.addClass('dia-question')
+			console.log(ci);
+			console.log(qi);
 
-			dias[el.id] = dia;
+			function new_dia(el){
+				var dia = dialog(el.innerText, query('.qtext', el));
+				dia.effect('scale');
+				dia.overlay();
+				dia.modal();
+				dia.addClass('dia-question');
+				dia._autohidden = false;
 
-			var closedia = function (){
-				query('.value>a', el).style.display = 'none';
-			};
+				function newcdia(el){
+					var closedia = function (){
+						if (!this._autohidden){
+							this._autohidden = true;
+							return;
+						}
 
-			dia.on('escape', closedia);
-			dia.on('close', closedia);	
-		});
+						//query('.value>a', el).style.display = 'none';
+						query('.value', el).innerHTML = "&nbsp;";
+					};
+					
+					return closedia;
+				}
+
+				dia.on('hide', newcdia(el));	
+
+				return dia;
+			}
+
+			dias[el.id] = new_dia(el);
+		}
+
+		console.log(dias);
 
 		return socket;
 	}
@@ -171,35 +222,64 @@ module.exports = {
 		var ping = setInterval(pingfunc, 10000);
 		setTimeout(pingfunc, 200);
 
-		query.all(".category>.question").forEach(function (el){
-			var ci = -1,qi = -1;
+		console.log("add listeners");
+		var els = query.all(".category>.question");
+		console.log(els);
+		for (var i in els){
+			var el = els[i];
+
+			//console.log(typeof el);
+
+			if (typeof el !== "object") break;
+
+			console.log(el);
+			var ci = -1
+				, qi = -1
+				;
 			var matches = (el.id || "").match(/c(\d+)q(\d+)/);
 			if (matches && matches.length && matches.length > 2){
 				ci = matches[1];
 				qi = matches[2];
 			}
 
-			var dia = dialog(el.innerText, query('.qtext', el).innerHTML);
-			dia.closeable();
-			dia.effect('scale');
-			dia.overlay();
-			dia.addClass('dia-question-answer')
+			console.log(ci);
+			console.log(qi);
 
-			var closedia = function (){
-				query('.value>a', el).style.display = 'none';
-				socket_publish(socket, {type: "clear", game_id: game_id, session_id: session_id});
-			};
+			function new_dia(el, c, q){
+				var dia = dialog(el.innerText, query('.qtext', el));
+				//dia.closable();
+				dia.effect('scale');
+				dia.overlay();
+				dia.addClass('dia-question-answer')
 
-			dia.on('escape', closedia);
-			dia.on('close', closedia);
+				function newcdia(el){
+					var closedia = function (){
+						//query('.value>a', el).style.display = 'none';
+						query('.value', el).innerHTML = "&nbsp;";
+						socket_publish(socket, {type: "clear", game_id: game_id, session_id: session_id, category: c, question: q});
+					};
 
-			events.bind(query('.value>a', el), 'click', function (e){
-				e.preventDefault();
-				//open stuff
-				socket_publish(socket, {type: "display", game_id: game_id, session_id: session_id, category: ci, question: qi});
-				dia.show();
-			});	
-		});
+					return closedia;
+				}
+
+				dia.on('escape', newcdia(el));
+				dia.on('close', newcdia(el));
+
+				return dia;
+			}			
+
+			events.bind(query('.value>a', el), 'click', (function (c, q, dial){ 
+				return function (e){
+					console.log('click');
+					console.log(c);
+					console.log(q);
+					e.preventDefault();
+					//open stuff
+					socket_publish(socket, {type: "display", game_id: game_id, session_id: session_id, category: c, question: q});
+					dial.show();
+				};
+			})(ci, qi, new_dia(el, ci, qi)));	
+		}
 
 		return socket;
 	}

@@ -10,9 +10,9 @@ block content
           div.header
             span.text= category.name
     div
-      each category in game.categories
+      each category, ci in game.categories
         div.category
-          each question in category.questions
+          each question, qi in category.questions
             div.question(id="c"+ci+"q"+qi)
               span.value= question.value
               div.qtext

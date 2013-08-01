@@ -98,18 +98,16 @@ eserver.on('connection', function (socket){
       });
     }
 
-    if (data.type === "select"){
-
+    if (data.type === "display"){
+      myengine.send_display(data.game_id, data.session_id, data.category, data.question, socket, function (err){});
     }
 
-    if (data.type === "complete"){
-
+    if (data.type === "clear"){
+      myengine.send_clear(data.game_id, data.session_id, data.category, data.question, socket, function (err){});
     }
 
     if (data.type === "test"){
-      myengine.send_test(data.game_id, data.session_id, socket, data.data, function (err){
-        debugEngine();
-      });
+      myengine.send_test(data.game_id, data.session_id, socket, data.data, function (err){});
     }
   });
 
