@@ -155,6 +155,9 @@ module.exports = {
 				dia.addClass('dia-question');
 				dia._autohidden = false;
 
+				console.log(dia);
+				//MathJax.Hub.Queue(["Typeset",MathJax.Hub,dialog.el]);
+
 				function newcdia(el){
 					var closedia = function (){
 						if (!this._autohidden){
