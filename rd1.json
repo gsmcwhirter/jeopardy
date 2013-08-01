@@ -14,17 +14,17 @@
                "value": 200
            },
            {
-               "question": "Construct a truth-table to show that C\\ \\&\\ (B\\vee A)\\approx (C\\ \\&\\ B)\\vee(C\\ \\&\\ A)",
+               "question": "Construct a truth-table to show that \\(C\\ \\&\\ (B\\vee A)\\approx (C\\ \\&\\ B)\\vee(C\\ \\&\\ A)\\)",
                "answer": "(table)",
                "value": 300
            },
            {
-               "question": "Write an explanation for why if p,q\\models r, then the sentence (p\\ \\&\\ q)\\to r is a tautology.",
+               "question": "Write an explanation for why if \\(p,q\\models r\\), then the sentence \\((p\\ \\&\\ q)\\to r\\) is a tautology.",
                "answer": "(explanation)",
                "value": 400
            },
            {
-               "question": "Provide a natural deduction proof to demonstrate C\\to(B\\vee A),\\ \\sim B\\ \\&\\ \\sim D,\\ A\\leftrightarrow B,\\ ((E\\vee B)\\leftrightarrow C)\\to(A\\vee D)\\vdash E",
+               "question": "Provide a natural deduction proof to demonstrate \\(C\\to(B\\vee A),\\ \\sim B\\ \\&\\ \\sim D,\\ A\\leftrightarrow B,\\ ((E\\vee B)\\leftrightarrow C)\\to(A\\vee D)\\vdash E\\)",
                "answer": "(proof)",
                "value": 500
            }
@@ -35,27 +35,27 @@
        "order": 1,
        "questions": [
            {
-               "question": "",
+               "question": "Translate the following into quantifier logic symbols: If all Cylons are evil, then Gaius Baltar is evil.",
                "answer": "",
                "value": 100
            },
            {
-               "question": "Provide a natural deduction proof to show \\forall x(Fx\\to Gx)\\vdash (\\forall x\\sim Gx\\to\\forall x\\sim Fx)",
+               "question": "Provide a natural deduction proof to show \\(\\forall x(Fx\\to Gx)\\vdash (\\forall x\\sim Gx\\to\\forall x\\sim Fx)\\)",
                "answer": "",
                "value": 200
            },
            {
-               "question": "Which of the following is more sad, and why?<ol><li>\\exists x((Tx\\ \\&\\ \\forall y(Ty\\to y=x))\\ \\&\\ Lx)</li><li>\\exists x((Tx\\land Lx)\\ \\&\\ \\forall y((Ty\\ \\&\\ Ly)\\to y=x))</li></ol> Assume Tx means that x is a turtle and Lx means that x is lonely.",
+               "question": "Which of the following is more sad, and why?<ol><li>\\(\\exists x((Tx\\ \\&\\ \\forall y(Ty\\to y=x))\\ \\&\\ Lx)\\)</li><li>\\(\\exists x((Tx\\land Lx)\\ \\&\\ \\forall y((Ty\\ \\&\\ Ly)\\to y=x))\\)</li></ol> Assume Tx means that x is a turtle and Lx means that x is lonely.",
                "answer": "(good explanations)",
                "value": 300
            },
            {
-               "question": "",
+               "question": "Consider the two sentences:<ol><li>Everybody loves somebody.</li><li>Somebody is loved by everybody.</li></ol> One implies the other. Which implies which? Prove it.",
                "answer": "",
                "value": 400
            },
            {
-               "question": "",
+               "question": "Does the following interpretation show that the sentence \\(\\forall x\\exists y(Lxy\\vee Px)\\) is falsifiable? Why or why not?<ul><li>Domain: \\(\\{1,2,3\\}\\)</li><li>\\(P = \\{2,3\\}\\)</li><li>\\(L = \\{\\langle 3,3\\rangle, \\langle 1,1\\rangle, \\langle 2,1\\rangle\\}\\)</li></ul>",
                "answer": "",
                "value": 500
            }
@@ -67,12 +67,12 @@
        "questions": [
            {
                "question": "What is the definition of subset?",
-               "answer": "A\\subseteq B\\leftrightarrow \\forall x(x\\in A\\to x\\in B)",
+               "answer": "\\(A\\subseteq B\\leftrightarrow \\forall x(x\\in A\\to x\\in B)\\)",
                "value": 100
            },
            {
                "question": "True or false: The power set of the empty set is the empty set. If true, explain why. If false, calculate the actual power set.",
-               "answer": "False, P(\\emptyset) = \\{\\emptyset\\}",
+               "answer": "False, \\(P(\\emptyset) = \\{\\emptyset\\}\\)",
                "value": 200
            },
            {
@@ -81,12 +81,12 @@
                "value": 300
            },
            {
-               "question": "Prove that if A\\neq\\emptyset, then either A\\setminus B\\neq\\emptyset or A\\cap B\\neq \\emptyset.",
+               "question": "Prove that if \\(A\\neq\\emptyset\\), then either \\(A\\setminus B\\neq\\emptyset\\) or \\(A\\cap B\\neq \\emptyset\\).",
                "answer": "(proof)",
                "value": 400
            },
            {
-               "question": "Prove that if B and C are disjoint and A\\cap C is nonempty, then A\\not\\subseteq B.",
+               "question": "Prove that if B and C are disjoint and \\(A\\cap C\\) is nonempty, then \\(A\\not\\subseteq B\\).",
                "answer": "(proof)",
                "value": 500
            }
@@ -97,27 +97,27 @@
        "order": 3,
        "questions": [
            {
-               "question": "What does it mean (by definition) to say 3\\mid n?",
+               "question": "What does it mean (by definition) to say \\(3\\mid n\\)?",
                "answer": "There is a natural number k such that 3k=n.",
                "value": 100
            },
            {
-               "question": "Prove that n^3 is even iff n is even.",
+               "question": "Prove that \\(n^3\\) is even iff \\(n\\) is even.",
                "answer": "",
                "value": 200
            },
            {
-               "question": "Prove, by mathematical induction, that 0^2 + 1^2 +\\cdots + n^2 = \\frac{n(n+1)(2n+1)}{6}.",
+               "question": "Prove, by mathematical induction, that \\(0^2 + 1^2 +\\cdots + n^2 = \\frac{n(n+1)(2n+1)}{6}\\).",
                "answer": "",
                "value": 300
            },
            {
-               "question": "Prove that for any natural number n, n(n^2 - 1) is divisible by 3.",
+               "question": "Prove that for any natural number \\(n\\), \\(n(n^2 - 1)\\) is divisible by 6.",
                "answer": "(proof)",
                "value": 400
            },
            {
-               "question": "Prove that for any natural numbers m and n, mn is even iff either m is even or n is even.",
+               "question": "Prove that for any natural numbers \\(m\\) and \\(n\\), \\(mn\\) is even iff either \\(m\\) is even or \\(n\\) is even.",
                "answer": "",
                "value": 500
            }
@@ -128,7 +128,7 @@
        "order": 4,
        "questions": [
            {
-               "question": "Must a valid argument have premises that are true in the real world? Why?",
+               "question": "Must a valid argument have premises that are true in the real world? Why or why not?",
                "answer": "No",
                "value": 100
            },
