@@ -6,7 +6,17 @@ var socket_engine = require("engine.io")
 	, dialog = require('dialog')
 	;
 
-var the_overlay = overlay();
+var the_overlay;
+
+function show_overlay(){
+  the_overlay.hide();
+  the_overlay = overlay();
+  the_overlay.show();
+}
+
+function hide_overlay(){
+  the_overlay && the_overlay.hide();
+}
 
 function socket_publish(socket, data){
 	if (socket.readyState === "closed"){
@@ -168,14 +178,14 @@ module.exports = {
 
 						//query('.value>a', el).style.display = 'none';
 						query('.value', el).innerHTML = "&nbsp;";
-						the_overlay.hide();
+						hide_overlay();
 					};
 					
 					return closedia;
 				}
 
 				dia.on('show', function (){
-					the_overlay.show();
+          show_overlay();
 				})
 				dia.on('hide', newcdia(el));	
 
@@ -266,15 +276,14 @@ module.exports = {
 					var closedia = function (){
 						//query('.value>a', el).style.display = 'none';
 						query('.value', el).innerHTML = "&nbsp;";
-            the_overlay.hide();
+            hide_overlay();
 						socket_publish(socket, {type: "clear", game_id: game_id, session_id: session_id, category: c, question: q});
 					};
 
 					return closedia;
 				}
 
-				dia.on('show', function (){the_overlay.show();});
-        //dia.on('hide', function (){the_overlay.hide();});
+				dia.on('show', show_overlay);
 				dia.on('escape', newcdia(el));
 				dia.on('close', newcdia(el));
 
