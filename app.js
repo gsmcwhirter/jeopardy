@@ -21,6 +21,7 @@ var app = express();
 
 app.configure(function(){
   app.set('port', config.port || process.env.PORT || 3000);
+  app.set('ws_domain', "ws://" + (config.websocket_domain || "localhost") + ":" + app.get('port'));
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.use(express.favicon());
@@ -33,6 +34,8 @@ app.configure(function(){
   app.use(require('stylus').middleware(__dirname + '/public'));
   app.use(express.static(path.join(__dirname, 'public')));
 });
+
+console.log(app.get('ws_domain'));
 
 app.configure('development', function(){
   app.use(express.errorHandler());

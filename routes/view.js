@@ -9,7 +9,7 @@ exports.show = function (req, res){
 		res.redirect("view/" + req.game._doc._id + "/"+game_session);
 	}
 	else {
-		res.render('view', { title: req.game.title, game: req.game, game_session: req.game_session });
+		res.render('view', { title: req.game.title, ws_domain: req.app.get('ws_domain'), game: req.game, game_session: req.game_session });
 	}
 	//res.end("<html><body>Game!<br/><br/><pre>"+JSON.stringify(req.game, null, 4)+"</pre></body></html>");
 };

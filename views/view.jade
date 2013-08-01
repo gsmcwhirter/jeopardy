@@ -21,4 +21,4 @@ block content
 
 append scripts
   script(type="text/javascript").
-    var socket = Jeopardy.initViewer("ws://localhost:5900", "#{game._doc._id}", "#{game_session}");
+    var socket = Jeopardy.initViewer("#{ws_domain}", "#{game._doc._id}", "#{game_session}");

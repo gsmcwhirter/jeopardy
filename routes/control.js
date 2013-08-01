@@ -17,6 +17,6 @@ exports.show = function (req, res){
 		res.redirect("control/" + req.game._doc._id + "/"+game_session);
 	}
 	else {
-		res.render('control', { title: req.game.title, game: req.game, game_session: req.game_session });
+		res.render('control', { title: req.game.title, ws_domain: req.app.get('ws_domain'), game: req.game, game_session: req.game_session });
 	}
 };

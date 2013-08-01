@@ -24,4 +24,4 @@ block content
 
 append scripts
   script(type="text/javascript").
-    var socket = Jeopardy.initController("ws://localhost:5900", "#{game._doc._id}", "#{game_session}");
+    var socket = Jeopardy.initController("#{ws_domain}", "#{game._doc._id}", "#{game_session}");
