@@ -40,13 +40,13 @@
                "value": 100
            },
            {
-               "question": "",
+               "question": "Provide a natural deduction proof to show \\forall x(Fx\\to Gx)\\vdash (\\forall x\\sim Gx\\to\\forall x\\sim Fx)",
                "answer": "",
                "value": 200
            },
            {
-               "question": "",
-               "answer": "",
+               "question": "Which of the following is more sad, and why?<ol><li>\\exists x((Tx\\ \\&\\ \\forall y(Ty\\to y=x))\\ \\&\\ Lx)</li><li>\\exists x((Tx\\land Lx)\\ \\&\\ \\forall y((Ty\\ \\&\\ Ly)\\to y=x))</li></ol> Assume Tx means that x is a turtle and Lx means that x is lonely.",
+               "answer": "(good explanations)",
                "value": 300
            },
            {
@@ -102,12 +102,12 @@
                "value": 100
            },
            {
-               "question": "",
+               "question": "Prove that n^3 is even iff n is even.",
                "answer": "",
                "value": 200
            },
            {
-               "question": "",
+               "question": "Prove, by mathematical induction, that 0^2 + 1^2 +\\cdots + n^2 = \\frac{n(n+1)(2n+1)}{6}.",
                "answer": "",
                "value": 300
            },
@@ -117,7 +117,7 @@
                "value": 400
            },
            {
-               "question": "",
+               "question": "Prove that for any natural numbers m and n, mn is even iff either m is even or n is even.",
                "answer": "",
                "value": 500
            }
@@ -133,24 +133,24 @@
                "value": 100
            },
            {
-               "question": "",
+               "question": "Using the syntax and grammar of truth-functional logic, give an example of an incomplete system.",
                "answer": "",
-               "value": 200
+               "value": 500
            },
            {
-               "question": "",
-               "answer": "",
-               "value": 300
-           },
-           {
-               "question": "What does it mean for a logical system to be sound? Using the syntax and grammar of truth-functional logic, ",
+               "question": "Using the syntax and grammar of truth-functional logic, give an example of an unsound system.",
                "answer": "",
                "value": 400
            },
            {
-               "question": "",
+               "question": "What does it mean for a logical system to be sound?",
                "answer": "",
-               "value": 500
+               "value": 200
+           },
+           {
+               "question": "What does it mean for a logical system to be complete?",
+               "answer": "",
+               "value": 300
            }
        ]
    }
