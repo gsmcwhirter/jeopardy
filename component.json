@@ -5,8 +5,8 @@
   "version": "0.0.1",
   "keywords": [],
   "dependencies": {
-    "component/dialog": "*",
-    "component/overlay": "*",
+    "component/dialog": "0.0.7",
+    "component/overlay": "0.1.1",
     "Automattic/engine.io-client": "0.6.3",
     "component/json": "*",
     "component/json-fallback": "*",

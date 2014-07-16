@@ -4,8 +4,6 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/build.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
-    //script(type="text/javascript", src="/javascripts/jquery.js")
-    //script(type="text/javascript", src="/javascripts/handlebars.js")
     script(type="text/x-mathjax-config").
       MathJax.Hub.Config({
         tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
@@ -15,8 +13,6 @@ html
     block content
 
     block scripts
-      //script(type="text/javascript", src="/javascripts/ember.js")
       script(type="text/javascript", src="/javascripts/build.js")
       script(type="text/javascript").
         window.Jeopardy = require('jeopardy');
-        

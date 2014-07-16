@@ -329,7 +329,9 @@ Engine.prototype.cleanSockets = function (){
 		}
 
 		sessions_to_delete.forEach(function (session){
-			delete this.games[gid].sessions[session];
+			if(this.games[gid]){
+				delete this.games[gid].sessions[session];
+			}
 		});
 
 		if (Object.keys(this.games[gid].sessions).length === 0){
