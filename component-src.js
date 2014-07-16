@@ -287,7 +287,7 @@ module.exports = {
 					return closedia;
 				}
 
-				//var handler = newcdia(el);
+				var handler = newcdia(el);
 
 				dia.on('show', show_overlay);
 				dia.on('escape', handler);
