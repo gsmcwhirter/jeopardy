@@ -265,16 +265,16 @@ module.exports = {
 
 			function new_dia(el, c, q){
 				var dia = dialog("For " + el.innerText + " points:", query('.qtext', el));
-				//dia.closable();
+				dia.closable();
 				dia.effect('scale');
 				//dia.overlay();
 				dia.addClass('dia-question-answer');
-				dia.closable();
 
 				MathJax.Hub.Queue(["Typeset",MathJax.Hub,dia.el[0]]);
 
 				function newcdia(el){
 					var closedia = function (){
+						console.log("Closing");
 						//query('.value>a', el).style.display = 'none';
 						query('.value', el).innerHTML = "&nbsp;";
             hide_overlay();
