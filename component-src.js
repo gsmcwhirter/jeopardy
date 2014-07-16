@@ -284,9 +284,11 @@ module.exports = {
 					return closedia;
 				}
 
+				var handler = newcdia(el);
+
 				dia.on('show', show_overlay);
-				dia.on('escape', newcdia(el));
-				dia.on('close', newcdia(el));
+				dia.on('escape', handler);
+				dia.on('close', handler);
 
 				return dia;
 			}
