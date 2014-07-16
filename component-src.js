@@ -268,7 +268,8 @@ module.exports = {
 				//dia.closable();
 				dia.effect('scale');
 				//dia.overlay();
-				dia.addClass('dia-question-answer')
+				dia.addClass('dia-question-answer');
+				dia.closable();
 
 				MathJax.Hub.Queue(["Typeset",MathJax.Hub,dia.el[0]]);
 
@@ -288,7 +289,7 @@ module.exports = {
 				dia.on('close', newcdia(el));
 
 				return dia;
-			}			
+			}
 
 			events.bind(query('.value>a', el), 'click', (function (c, q, dial){ 
 				return function (e){
