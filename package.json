@@ -18,7 +18,7 @@
     "grunt-couchapp": "~0.1.0",
     "grunt-contrib-copy": "~0.4.1",
     "grunt-contrib-clean": "~0.5.0",
-    "grunt-component": "~0.1.4",
+    "grunt-component": "~0.1.8",
     "grunt-forever": "~0.4.1"
   }
 }
