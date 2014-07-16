@@ -159,7 +159,7 @@ module.exports = {
 			console.log(ci);
 			console.log(qi);
 
-			function new_dia(el){
+			function new_dia2(el){
 				var dia = dialog("For " + el.innerText + " points:", query('.qtext', el));
 				dia.effect('scale');
 				//dia.overlay();
@@ -169,7 +169,7 @@ module.exports = {
 
 				MathJax.Hub.Queue(["Typeset",MathJax.Hub,dia.el[0]]);
 
-				function newcdia(el){
+				function newcdia2(el){
 					var closedia = function (){
 						if (!this._autohidden){
 							this._autohidden = true;
@@ -184,7 +184,7 @@ module.exports = {
 					return closedia;
 				}
 
-				var handler = newcdia(el);
+				var handler = newcdia2(el);
 
 				dia.on('show', function (){
           show_overlay();
@@ -195,7 +195,7 @@ module.exports = {
 				return dia;
 			}
 
-			dias[el.id] = new_dia(el);
+			dias[el.id] = new_dia2(el);
 		}
 
 		console.log(dias);
