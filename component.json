@@ -7,11 +7,12 @@
   "dependencies": {
     "component/dialog": "*",
     "component/overlay": "*",
-    "learnboost/engine.io-client": "*",
+    "Automattic/engine.io-client": "0.6.3",
     "component/json": "*",
     "component/json-fallback": "*",
-    "component/event": "*",
-    "component/query": "*"
+    "component/event": "0.1.1",
+    "component/query": "*",
+    "component/emitter": "*"
   },
   "main": "component-src.js",
   "scripts": [
