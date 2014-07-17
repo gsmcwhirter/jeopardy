@@ -4,11 +4,11 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/build.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
-    script(type="text/x-mathjax-config").
-      MathJax.Hub.Config({
+    script(type="text/javascript").
+      window.MathJax = {
         tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
         processEscapes: true
-      });
+      };
     script(type="text/javascript", src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")
   body
     block content
