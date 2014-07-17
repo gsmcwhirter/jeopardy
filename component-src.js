@@ -273,6 +273,7 @@ module.exports = {
 				//dia.overlay();
 				dia.addClass('dia-question-answer');
 
+				console.log("MJ:", dia.el[0]);
 				MathJax.Hub.Queue(["Typeset",MathJax.Hub,dia.el[0]]);
 
 				function newcdia(el){
