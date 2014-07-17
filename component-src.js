@@ -174,7 +174,6 @@ module.exports = {
 					var closedia = function (){
 						if (!this._autohidden){
 							this._autohidden = true;
-							return;
 						}
 
 						//query('.value>a', el).style.display = 'none';
